@@ -6,15 +6,15 @@ node{
     }
 
     stage('Build image') {
-        app = docker.build("lquenec/srv-web")
+        app = docker.build("srv-web")
     }
 
     stage('Run image') {
-        docker.image('lquenec/srv-web').withRun('-p 80:80') { c ->
+        docker.image('srv-web').withRun('-p 800:80') { c ->
 
         sh 'docker ps'
 
-        sh 'curl localhost'
+        sh 'curl 172.17.0.1:800'
 
     }
 
