@@ -14,7 +14,7 @@ node{
 
         sh 'docker ps | grep srv-web'
 
-        sh 'curl 172.30.0.1:800'
+        sh 'curl localhost:800'
 
     }
 
