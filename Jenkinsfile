@@ -10,7 +10,7 @@ node{
     }
 
     stage('Run image') {
-        docker.image('srv-web').withRun('-p 800:80 -n jenkins_default --name srv_web' ) { c ->
+        docker.image('srv-web').withRun('-p 800:80 --network jenkins_default --name srv_web' ) { c ->
 
         sh 'docker ps | grep srv-web'
 
