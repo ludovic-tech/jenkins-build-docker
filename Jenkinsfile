@@ -12,12 +12,12 @@ node{
     stage('Run image') {
         docker.image('srv-web').withRun('-p 800:80 --name srv_web' ) { c ->
 
-        sh 'docker ps | grep srv-web'
-
-      
+        sh 'docker ps | grep srv_web'
+      }
 
     }
-
+   stage('remove container') {
+        docker.remove("srv_web")
     }
     
 }
