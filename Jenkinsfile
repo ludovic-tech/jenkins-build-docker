@@ -16,8 +16,4 @@ node{
       }
 
     }
-   stage('remove container') {
-        docker.remove("srv_web")
-    }
-    
 }
