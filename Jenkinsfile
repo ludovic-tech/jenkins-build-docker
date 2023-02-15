@@ -1,6 +1,5 @@
-pipeline {
-	agent none
-  
+node {
+	  
     stage('Clone') {
         checkout scm
     }
