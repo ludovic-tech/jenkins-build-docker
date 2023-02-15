@@ -1,11 +1,16 @@
-node {
-	  
+
+node {
+
+   #def registryProjet='quenec/'
+   #def IMAGE="${registryProjet}app:3.5"
+   def IMAGE="srv-web"
+	
     stage('Clone') {
-        checkout scm
+          checkout scm
     }
 
-    stage('Build image') {
-        docker.build("srv-web")
+    def img = stage('Build') {
+          docker.build("$IMAGE",  '.')
     }
 
     stage('Run image') {
