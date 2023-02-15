@@ -1,8 +1,7 @@
 
 node {
 
-   #def registryProjet='quenec/'
-   #def IMAGE="${registryProjet}app:3.5"
+  
    def IMAGE="srv-web"
 	
     stage('Clone') {
