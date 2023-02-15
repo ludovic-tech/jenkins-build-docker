@@ -1,12 +1,12 @@
-node{
-  def app
-
+pipeline {
+	agent none
+  
     stage('Clone') {
         checkout scm
     }
 
     stage('Build image') {
-        app = docker.build("srv-web")
+        docker.build("srv-web")
     }
 
     stage('Run image') {
