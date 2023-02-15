@@ -1,5 +1,5 @@
 
-pipeline {
+node {
 
   
    def IMAGE="srv-web"
