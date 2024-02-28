@@ -3,6 +3,7 @@ node {
 
   
    def IMAGE="srv-web-ludo"
+   def container_name="srv-web"
 	
     stage('Clone') {
           checkout scm
