@@ -2,8 +2,8 @@
 node {
 
   
-   def IMAGE="srv-web-ludo"
-   def container_name="srv-web"
+   def IMAGE="srv-web-formation"
+   def container_name="srv-web-formation"
 	
     stage('Clone') {
           checkout scm
@@ -14,7 +14,7 @@ node {
     }
 
     stage('Run image') {
-        docker.image('srv-web-ludo').withRun('--name srv-web' ) { c ->
+        docker.image('srv-web-formation').withRun('--name srv-web' ) { c ->
 
         sh 'docker ps | grep srv-web'
 	}
