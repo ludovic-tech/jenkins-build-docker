@@ -4,7 +4,6 @@ node {
    	
     stage('Clone') {
           checkout scm
-	    
     }
 	
     stage('Build') {
@@ -16,6 +15,6 @@ node {
 
         sh 'docker ps | grep srv-web'
 	}
-	    
     }
+	
 }
