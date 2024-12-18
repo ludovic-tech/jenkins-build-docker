@@ -1,20 +1,19 @@
 node {
-	
-   def IMAGE="srv-web-formation"
-   	
+   
+   def PROJECT="ludo-forma"
+   def IMAGE="$PROJECT/app:3.5"
+   
     stage('Clone') {
           checkout scm
     }
-	
+    
     stage('Build') {
           docker.build("$IMAGE",  '.')
-    }
-	
-    stage('Run image') {
-        docker.image('srv-web-formation').withRun('--name srv-web' ) { c ->
+          }
 
-        sh 'docker ps | grep srv-web'
-	}
+    stage('Run') {
+          img.withRun("--name run-$BUILD_ID") { c ->
+       
+          }
     }
-	
 }
