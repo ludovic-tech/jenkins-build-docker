@@ -1,19 +1,23 @@
+
 node {
-   
-   def PROJECT="ludo-forma"
-   def IMAGE="$PROJECT/app:3.5"
-   
+
+  
+   def IMAGE="srv-web"
+	
     stage('Clone') {
           checkout scm
     }
-    
-    stage('Build') {
-          docker.build("$IMAGE",  '.')
-          }
 
-    stage('Run') {
-          img.withRun("--name run-$BUILD_ID") { c ->
-       
-          }
+    def img = stage('Build') {
+          docker.build("$IMAGE",  '.')
+    }
+
+    stage('Run image') {
+        docker.image('srv-web').withRun('-p 800:80 --name srv_web' ) { c ->
+
+        sh 'docker ps | grep srv_web'
+	sh 'curl ${IP}:800'
+      }
+
     }
 }
