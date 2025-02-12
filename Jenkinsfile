@@ -16,7 +16,7 @@ node {
         docker.image('srv-web').withRun('-p 800:80 --name srv_web' ) { c ->
 
         sh 'docker ps | grep srv_web'
-	sh 'curl ${IP}:800'
+	
       }
 
     }
